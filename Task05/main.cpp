@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-bool get_max_number_digit(int number);
+int get_max_number_digit(int number);
 
 int main() {
 	int number;
@@ -14,7 +14,7 @@ int main() {
 	return 0;
 }
 
-bool get_max_number_digit(int number) {
+int get_max_number_digit(int number) {
 	number = number < 0 ? -number : number;
 
 	if (number < 10) {
