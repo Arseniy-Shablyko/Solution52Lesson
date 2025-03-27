@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-bool is_power_of_three(int number);
+bool get_max_number_digit(int number);
 
 int main() {
 	int number;
@@ -9,23 +9,20 @@ int main() {
 	cout << "Input your number: ";
 	cin >> number;
 
-	cout << (is_power_of_three(number) ? "Yes" : "No");
+	cout << get_max_number_digit(number);
 
 	return 0;
 }
 
-bool is_power_of_three(int number) {
-	if (number <= 0) {
-		return false;
+bool get_max_number_digit(int number) {
+	number = number < 0 ? -number : number;
+
+	if (number < 10) {
+		return number;
 	}
 
-	if (number == 1) {
-		return true;
-	}
+	int digit = number % 10;
+	number = get_max_number_digit(number / 10);
 
-	if (number % 3 != 0) {
-		return false;
-	}
-
-	return is_power_of_three(number / 3);
+	return (digit > number ? digit : number);
 }
